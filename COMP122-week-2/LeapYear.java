@@ -9,11 +9,18 @@ public class LeapYear {
      */
     int year = Integer.parseInt(args[0]);
 
-    boolean leapYear = false; // Your code here
-    if ((year%4 == 0 && year%100 != 0 ) || (year%4 == 0 || year %400 == 0)) {;
-    leapYear = true;
+    boolean leapYear = true; // Your code here
+    if (year%4 != 0 ) {
+    leapYear = false;
+    }
+    else if (year%4 == 0 && year%100 != 0) {
+      leapYear = true;
+    }
+    else if (year%4 == 0 && year%100 == 0 && year%400 != 0) {
+      leapYear = false;
     }
     // output
     System.out.println(leapYear);
   }
 }
+ //(year%4 == 0 || year %400 == 0)) 
