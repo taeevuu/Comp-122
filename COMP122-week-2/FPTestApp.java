@@ -3,7 +3,8 @@ public class FPTestApp {
         double x = 0.05;
         double y = x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x; 
         int value = (int) y;
+        double doubley = (double) value;
         System.out.println(x); 
-        System.out.println(value);
+        System.out.println(doubley);
      } 
 } 
