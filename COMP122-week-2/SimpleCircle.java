@@ -6,8 +6,8 @@ public class SimpleCircle {
         double r = 2.5;
         
         // replace the following two lines
-        double area = ???
-        double circumference = ???
+        double area = Math.pow(Math.PI*r, 2);
+        double circumference = Math.pow(Math.PI*r*2, 2);
   
         System.out.println(r);
         System.out.println(area);
