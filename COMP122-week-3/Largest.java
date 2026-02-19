@@ -5,17 +5,18 @@ public class Largest {
         int n = scanner.nextInt();
 
         // your code here...
-        int[] myArray = ?
+        int[] myArray = new int[n];
 
-        for (;;) {
-            ? = scanner.nextInt();
+        for(int i = 0; i < n; i++) {
+            System.out.print("Enter an integer:");
+            myArray[i] = scanner.nextInt();
         }
 
-        int largestValue = ?
+        int largestValue = myArray[0];
 
-        for (;;) {
-            if (?) {
-                ?
+        for (int q = 1; q < n; q++) {
+            if (myArray[q] > largestValue) {
+                largestValue = myArray[q];
             }
         }
 
