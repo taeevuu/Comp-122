@@ -1,6 +1,11 @@
 public class Newton {
   public static void main(String[] args) {
     // Read in values (assume valid positive inputs)
+    if (args.length != 2) {
+      System.out.println("Usage: java Newton <n> <guess>");
+      return;
+    }
+
     double n = Double.parseDouble(args[0]);
     double guess = Double.parseDouble(args[1]);
 
