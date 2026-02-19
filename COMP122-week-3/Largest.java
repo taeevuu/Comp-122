@@ -12,15 +12,19 @@ public class Largest {
             myArray[i] = scanner.nextInt();
         }
 
-        int largestValue = myArray[0];
+        if (n == 0) {
+            System.out.println("Error: Array is empty");
+        } else {
+            int largestValue = myArray[0];
 
-        for (int q = 1; q < n; q++) {
-            if (myArray[q] > largestValue) {
-                largestValue = myArray[q];
+            for (int q = 1; q < n; q++) {
+                if (myArray[q] > largestValue) {
+                    largestValue = myArray[q];
+                }
             }
-        }
 
-        // end of your code...
-        System.out.println(largestValue);
+            // end of your code...
+            System.out.println(largestValue);
+        }
     }
 }
