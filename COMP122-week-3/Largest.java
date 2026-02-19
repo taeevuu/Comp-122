@@ -1,5 +1,5 @@
 public class Largest {
-    public static void main() {
+    public static void main(String[] args) {
         System.out.print("Length of Array:");
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         int n = scanner.nextInt();
