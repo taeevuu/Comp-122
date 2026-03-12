@@ -4,7 +4,7 @@ public class VGather {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("How many students in class?");
+        System.out.println("How Many Students in Class?");
         int numStudents = scanner.nextInt();
         
         int[] grades = new int[numStudents];
@@ -20,7 +20,7 @@ public class VGather {
         }
         
         double average = sum / numStudents;
-        System.out.printf("Class average: %.2f\n", average);
+        System.out.println(average);
         
         scanner.close();
     }
