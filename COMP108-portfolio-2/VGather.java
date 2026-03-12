@@ -21,6 +21,8 @@ public class VGather {
         }
         
         double average = sum / numStudents;
+        // round to two decimal places using Math.round
+        average = Math.round(average * 100.0) / 100.0;
         System.out.println(average);
         
         scanner.close();
