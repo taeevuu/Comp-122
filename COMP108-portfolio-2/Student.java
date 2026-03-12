@@ -1,4 +1,4 @@
-public public class Student {
+public class Student {
     public boolean hasSubmitted = false;
     public String name  = "";
     public String email = ""; 
@@ -12,6 +12,4 @@ public public class Student {
     public void updateGrade(int mark) {
         grade += mark;
     }
-} {
-    
 }

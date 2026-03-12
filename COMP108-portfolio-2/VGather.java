@@ -1,4 +1,4 @@
-public import java.util.Scanner;
+import java.util.Scanner;
 
 public class VGather {
     public static void main(String[] args) {
@@ -24,7 +24,4 @@ public class VGather {
         
         scanner.close();
     }
-}
- {
-    
 }
