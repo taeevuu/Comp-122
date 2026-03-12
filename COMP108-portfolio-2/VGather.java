@@ -10,7 +10,8 @@ public class VGather {
         int[] grades = new int[numStudents];
         
         for (int i = 0; i < numStudents; i++) {
-            System.out.print("Enter a grade:" + (i + 1) );
+            // prompt only the text, then read the grade on the next line
+            System.out.println("Enter a grade:");
             grades[i] = scanner.nextInt();
         }
         
