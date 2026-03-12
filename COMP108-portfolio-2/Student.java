@@ -6,7 +6,10 @@ public class Student {
     public int enrolmentYear = 0; 
     public int studentId = 0; 
     public int grade = 0;
+    
+    public Student() {
 
+    }
     public Student(String name, String email, int yearOfBirth, int enrolmentYear, int studentId) {
         this.name = name;
         this.email = email;
@@ -40,15 +43,6 @@ public class Student {
         this.yearOfBirth = year;
         // enrolmentYear and studentId default to 0
     }
-
-    /**
-     * No‑argument default constructor in case an empty student object is needed.
-     */
-    public Student() {
-        // fields are already initialized to defaults above
-    }
-
-
     public void submitCoursework() {
         hasSubmitted = true;
     }
