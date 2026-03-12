@@ -19,19 +19,35 @@ public class Student {
         this(name, email, yearOfBirth, 0, 0);
     }
 
+    /**
+     * Constructs a student from name, email and a date-of-birth string in the
+     * format "dd/mm/yyyy". Only the year is stored; the rest of the fields are
+     * left at their default values.
+     */
     public Student(String name, String email, String dob) {
+        // split on slash and extract year portion
         String[] parts = dob.split("/");
         int year = 0;
         if (parts.length == 3) {
             try {
                 year = Integer.parseInt(parts[2]);
             } catch (NumberFormatException e) {
+                // malformed year, leave as 0
             }
         }
         this.name = name;
         this.email = email;
         this.yearOfBirth = year;
+        // enrolmentYear and studentId default to 0
     }
+
+    /**
+     * No‑argument default constructor in case an empty student object is needed.
+     */
+    public Student() {
+        // fields are already initialized to defaults above
+    }
+
 
     public void submitCoursework() {
         hasSubmitted = true;
