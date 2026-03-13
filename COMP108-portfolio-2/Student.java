@@ -1,15 +1,16 @@
 public class Student {
-    public boolean hasSubmitted = false;
-    public String name  = "";
-    public String email = ""; 
-    public int yearOfBirth = 0; 
-    public int enrolmentYear = 0; 
-    public int studentId = 0; 
-    public int grade = 0;
+    // all attributes made private to prevent direct modification
+    private boolean hasSubmitted = false;
+    private String name = "";
+    private String email = ""; 
+    private int yearOfBirth = 0; 
+    private int enrolmentYear = 0; 
+    private int studentId = 0; 
+    private int grade = 0;
     
     public Student() {
-
     }
+
     public Student(String name, String email, int yearOfBirth, int enrolmentYear, int studentId) {
         this.name = name;
         this.email = email;
@@ -22,32 +23,61 @@ public class Student {
         this(name, email, yearOfBirth, 0, 0);
     }
 
-    /**
-     * Constructs a student from name, email and a date-of-birth string in the
-     * format "dd/mm/yyyy". Only the year is stored; the rest of the fields are
-     * left at their default values.
-     */
     public Student(String name, String email, String dob) {
-        // split on slash and extract year portion
         String[] parts = dob.split("/");
         int year = 0;
         if (parts.length == 3) {
             try {
                 year = Integer.parseInt(parts[2]);
             } catch (NumberFormatException e) {
-                // malformed year, leave as 0
+                // leave as 0 if format is bad
             }
         }
         this.name = name;
         this.email = email;
         this.yearOfBirth = year;
-        // enrolmentYear and studentId default to 0
     }
-    public void submitCoursework() {
-        hasSubmitted = true;
+
+    public void updateGrade(int newGrade) {
+        // check if grade is within valid bounds
+        if (newGrade < 0 || newGrade > 100) {
+            System.out.println("Enter a grade from 0-100.");
+            return;
+        }
+        
+        // set grade and mark as submitted
+        this.grade = newGrade;
+        this.hasSubmitted = true;
     }
-    public void updateGrade(int mark) {
-        grade += mark;
+
+    // --- Getters ---
+
+    public boolean getHasSubmitted() {
+        return hasSubmitted;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public int getEnrolmentYear() {
+        return enrolmentYear;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public int getGrade() {
+        return grade;
     }
 
     @Override
@@ -65,15 +95,10 @@ public class Student {
 
     public static void main(String[] args) {
         Student alice = new Student("Alice", "aliceXtreme@aol.com", 1984, 2021, 1234567);
-        Student bob = new Student("Bob", "bob@school.edu", 2000, 2022, 7654321);
-        // using overloaded constructor with minimal info
-        Student carol = new Student("Carol", "carol@example.com", 2003);
-        // historic record using string DOB
-        Student dave = new Student("Dave", "dave@oldschool.edu", "01/06/1984");
-        System.out.println(alice);
-        System.out.println(bob);
-        System.out.println(carol);
-        System.out.println(dave);
+        // testing the new updateGrade method
+        alice.updateGrade(85);
+        System.out.println(alice.getName() + " got a " + alice.getGrade());
+        
+        alice.updateGrade(150); // should trigger the error message
     }
-
 }
