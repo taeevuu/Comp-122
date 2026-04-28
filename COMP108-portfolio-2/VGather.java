@@ -1,16 +1,17 @@
-public import java.util.Scanner;
+import java.util.Scanner;
 
 public class VGather {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("How many students in class?");
+        System.out.println("How Many Students in Class?");
         int numStudents = scanner.nextInt();
         
         int[] grades = new int[numStudents];
         
         for (int i = 0; i < numStudents; i++) {
-            System.out.print("Enter a grade:" + (i + 1) + ": ");
+            // prompt only the text, then read the grade on the next line
+            System.out.println("Enter a grade:");
             grades[i] = scanner.nextInt();
         }
         
@@ -20,11 +21,10 @@ public class VGather {
         }
         
         double average = sum / numStudents;
-        System.out.printf("Class average: %.2f\n", average);
+        // round to two decimal places using Math.round
+        average = Math.round(average * 100.0) / 100.0;
+        System.out.println(average);
         
         scanner.close();
     }
-}
- {
-    
 }
