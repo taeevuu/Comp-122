@@ -7,12 +7,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents a printing press that prints and distributes books.
+ */
 public class Press {
     private Map<String, Integer> edition;
     private Map<String, List<Book>> shelf;
     private int shelfSize;
-    private String bookDir; // path to the folder containing the book text files
+    private String bookDir;
 
+    /**
+     * Creates a new Press that reads book files from the given directory.
+     * Each file in the directory is registered as a book the press can produce.
+     * The shelf starts empty and the edition count starts at zero for each book.
+     *
+     * @param pathToBookDir path to the directory containing book text files
+     * @param shelfSize the maximum number of copies to keep on the shelf per book
+     */
     public Press(String pathToBookDir, int shelfSize) {
         this.shelfSize = shelfSize;
         this.bookDir = pathToBookDir;
@@ -34,6 +45,16 @@ public class Press {
         }
     }
 
+    /**
+     * Prints a single copy of the book identified by bookID with the given edition number.
+     * Reads the book's title, author and content from the corresponding text file.
+     *
+     * @param bookID the file name identifying the book
+     * @param edition the edition number to assign to the printed copy
+     * @return a new Book object with the parsed details
+     * @throws IllegalArgumentException if the bookID does not match any known book
+     * @throws IOException if the file cannot be read or is missing required fields
+     */
     protected Book print(String bookID, int edition) throws IOException {
         if (!shelf.containsKey(bookID)) {
             throw new IllegalArgumentException("Unknown book: " + bookID);
@@ -69,10 +90,25 @@ public class Press {
         return new Book(title, author, content, edition);
     }
 
+    /**
+     * Returns a list of book ID strings for all books this press can produce.
+     *
+     * @return a list of valid book IDs
+     */
     public List<String> getCatalogue() {
         return new ArrayList<>(shelf.keySet());
     }
 
+    /**
+     * Returns the requested number of copies of the given book.
+     * Books are taken from the shelf first. If more are needed, a new batch
+     * is printed and the shelf is restocked to its maximum size.
+     *
+     * @param bookID the ID of the book to request
+     * @param amount the number of copies to return
+     * @return a list of books of the requested length, or an empty list if printing fails
+     * @throws IllegalArgumentException if the bookID is not in the catalogue
+     */
     public List<Book> request(String bookID, int amount) {
         if (!shelf.containsKey(bookID)) {
             throw new IllegalArgumentException("Unknown book: " + bookID);
