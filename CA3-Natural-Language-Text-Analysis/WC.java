@@ -73,19 +73,14 @@ public class WC {
     }
 
     /**
-     * Counts the number of lines in the input string by counting newline characters.
+     * Counts the number of lines in the input string.
+     * A string with no newlines is still considered to have one line.
      *
      * @param input the string to count lines in
      * @return the number of lines
      */
     private static int lineCount(String input) {
-        int count = 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == '\n') {
-                count++;
-            }
-        }
-        return count;
+        return input.split("\n").length;
     }
 
     /**
