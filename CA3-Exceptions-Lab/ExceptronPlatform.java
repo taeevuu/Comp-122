@@ -28,15 +28,15 @@ public class ExceptronPlatform {
                     if (ioe.getMessage().equals("FATAL ERROR")) {
                         throw ioe;
                     }
-                    messages += ioe.toString();
+                    messages += ioe.toString() + " ";
                 } catch (SQLException e) {
-                    messages += e.toString();
+                    messages += e.toString() + " ";
                 } catch (SuperCoolException e) {
-                    messages += e.toString();
+                    messages += e.toString() + " ";
                 } catch (RuntimeException e) {
                     throw e;
                 } catch (Exception e) {
-                    messages += e.toString();
+                    messages += e.toString() + " ";
                 }
             }
         } finally {
