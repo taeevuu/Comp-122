@@ -4,7 +4,7 @@ import java.sql.SQLException;
 /**
  * Runs an Exceptron through all its steps and collects any exception messages.
  */
-public class ExceptionPlatform {
+public class ExceptronPlatform {
 
     /**
      * Runs the Exceptron through each step of its scenario.
@@ -69,7 +69,7 @@ public class ExceptionPlatform {
          * 7 - Exception, IOException, SQLException, IOException, Exception, IOException, SQLException, IOException, ArrayIndexOutOfBoundsException
          * 8 - Should return Everything's Fine\n
          */
-        ExceptionPlatform ex = new ExceptionPlatform();
+        ExceptronPlatform ex = new ExceptronPlatform();
         //for (int i = 0; i < scenarios.length; i++) {
             System.out.println(ex.runExceptron(new Exceptron(0)));
         //}
