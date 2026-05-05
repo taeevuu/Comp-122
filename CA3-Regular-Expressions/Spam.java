@@ -3,7 +3,7 @@ import java.util.regex.Pattern;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
-import java.util.LinkedHashSet;
+import java.util.TreeSet;
 import java.nio.file.Files;
 
 public class Spam {
@@ -45,7 +45,7 @@ public class Spam {
             matcher = matchSenders(spam);
 
             // Loop through our matches, collecting unique sender addresses
-            Set<String> senders = new LinkedHashSet<>();
+            Set<String> senders = new TreeSet<>();
             while (matcher.find()) {
                 senders.add(matcher.group(1));
             }
